@@ -18,8 +18,8 @@ jobs:
           cmd: install
 
       - name: Download test file
-        run: curl -0 https://devpass-api-bucket.s3.amazonaws.com/testes/FetchAndReactTests/App.test.js -o src/App.test.js
-      
+        run: curl -0 https://devpass-api-bucket.s3.amazonaws.com/testes/FetchAndListReactTests/App.test.js -o src/App.test.js
+
       - name: Yarn test
         uses: borales/actions-yarn@v3.0.0
         with:
