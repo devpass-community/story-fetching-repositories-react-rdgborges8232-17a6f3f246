@@ -7,7 +7,11 @@ const List = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchRepositories = async () => {
-    // TODO
+    setIsLoading(true);
+    const response = await fetch('https://api.github.com/users/devpass-tech/repos');
+    const json = await response.json();
+    setRepositories(json);
+    setIsLoading(false);
   };
 
   return (
@@ -17,12 +21,16 @@ const List = () => {
 
         { isLoading ?
         ( <Spinner/> ) : 
-        ( 
-          <ListGroup className="repositoriesList">
+        ( <ListGroup className="repositoriesList">
 
-          { /* TODO */ }
-          
-          </ListGroup> )}
+        {repositories &&
+        repositories.map((repo, id) => {
+
+          return (
+            <ListGroup.Item key={repo.id}>{repo.name}</ListGroup.Item>
+          );
+        })}
+      </ListGroup> )}
       <Button data-testid="button" className="button" variant="primary" onClick={() => fetchRepositories()}>Fetch repositories</Button>
       </div>
     </div>
