@@ -1,6 +1,6 @@
-# Fetch and React
+# Fetch and List in React
 
-In this CodeStory, we're gonna implement an integration with an API to show random cat quotes.
+In this CodeStory, we're gonna implement an API integration and the visualization of its data in a List component.
 
 ## Getting started
 
