@@ -1,9 +1,15 @@
-import { screen, fireEvent, render, waitFor } from '@testing-library/react';
-import App from './App';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import App from "./App";
 
-test('it should render a quote when button is clicked', async () => {
-  render(<App />)
-  const button = screen.getByTestId('button')
-  fireEvent.click(button)
-  await waitFor(() => expect(screen.getByTestId('quote')).toBeDefined());
-})
+describe('expectedData', () => {
+    it('checks if returned data from API rendered into component', async () => {
+        render(<App />);
+
+        const button = screen.getByTestId('button')
+        fireEvent.click(button)
+
+        await waitFor(() => {
+            expect(screen.getByText("challenge-github-app")).toBeInTheDocument();
+        });
+    });
+});
